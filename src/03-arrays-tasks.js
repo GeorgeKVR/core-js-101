@@ -36,14 +36,7 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  const arr = []; let i = 1; let
-    sum = 1;
-  while (sum < len ** 2) {
-    arr.push(i);
-    sum += i;
-    i += 2;
-  }
-  return arr;
+  return Array.from({ length: len }, (x, y) => y * 2 + 1);
 }
 /**
  * Returns the doubled array - elements of the specified array
@@ -227,7 +220,11 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-  return arr.map((e, i) => arr[i - 1] + arr[i]);
+  let i = 0;
+  return arr.map((e) => {
+    i += e;
+    return i;
+  });
 }
 /**
  * Returns every second item from the specified array:
@@ -301,13 +298,8 @@ function get3TopItems(/* arr */) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-  let count = 0;
-  arr.forEach((e) => {
-    if (typeof (e) === 'number' && e > 0) count += 1;
-  });
-  return count;
+  return arr.filter((e) => typeof (e) === 'number' && e > 0).length;
 }
-
 /**
  * Sorts digit names
  *
@@ -366,11 +358,7 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-  let count = 0;
-  arr.forEach((e) => {
-    if (e === 0 || e === false || e === '' || Number.isNaN(e) || e === undefined || e === null) count += 1;
-  });
-  return count;
+  return arr.filter((e) => e === 0 || e === false || e === '' || Number.isNaN(e) || e === undefined || e === null).length;
 }
 /**
  * Returns a number of all occurences of the specified item in an array
@@ -387,11 +375,7 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-  let count = 0;
-  arr.forEach((e) => {
-    if (e === item) count += 1;
-  });
-  return count;
+  return arr.filter((e) => e === item).length;
 }
 /**
  * Concatenates all elements from specified array into single string with ',' delimeter
@@ -560,7 +544,7 @@ function selectMany(/* arr, childrenSelector */) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(/* arr, indexes */) {
-
+  throw new Error('Not implemented');
 }
 
 
