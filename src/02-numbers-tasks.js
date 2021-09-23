@@ -49,7 +49,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+  return value1 / 2 + value2 / 2;
 }
 /**
  * Returns a distance beetween two points by cartesian coordinates.
@@ -171,8 +171,17 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  if (pow === 0) {
+    return num;
+  }
+  if (pow === 1) {
+    return +num.toPrecision(pow + 2);
+  }
+  if (pow === 2) {
+    return +num.toPrecision(pow);
+  }
+  return +num.toPrecision(pow - 2);
 }
 /**
  * Returns true is the number is prime; otherwise false.
