@@ -107,7 +107,6 @@ function getArrayOfStrings(arr) {
 function removeFalsyValues(arr) {
   return arr.filter((e) => !Number.isNaN(e) && e !== 0 && e !== false && e !== null && e !== '' && e !== undefined);
 }
-console.log(removeFalsyValues([0, false, 'cat', NaN, true, '']));
 /**
  * Returns the array of uppercase strings from the specified array
  *
@@ -230,7 +229,6 @@ function toArrayOfSquares(arr) {
 function getMovingSum(arr) {
   return arr.map((e, i) => arr[i - 1] + arr[i]);
 }
-console.log(getMovingSum([1, 1, 1, 1, 1]));
 /**
  * Returns every second item from the specified array:
  *
@@ -340,7 +338,6 @@ function sortDigitNamesByNumericOrder(arr) {
   const arr2 = Object.values(digits);
   return arr.sort((a, b) => arr2.indexOf(a) - arr2.indexOf(b));
 }
-console.log(sortDigitNamesByNumericOrder(['nine', 'one']));
 /**
  * Returns the sum of all items in the specified array of numbers
  *
@@ -356,7 +353,6 @@ console.log(sortDigitNamesByNumericOrder(['nine', 'one']));
 function getItemsSum(arr) {
   return arr.reduce((pre, curr) => pre + curr, 0);
 }
-console.log(getItemsSum([]));
 /**
  * Returns the number of all falsy value in the specified array
  *
